@@ -6,28 +6,49 @@
  Create: 12-02-2020
  */
 
-var nivel;
-var nivelId;
-var limite;
+$(document).ready(function () {
+    var nivel;
+    var nivelId;
+    var limite;
+    var historico;
+    
+    
+    var palavras;
+    var palavra;
+    var palavraSombra;
 
-var palavras;
-var palavra;
-var palavraSombra;
 
-var historico;
-var letras;
-var acertos;
-var erros;
+    var letras;
+    var acertos;
+    var erros;
+
+
+
+
+    //Função para determinar as palavras e os níveis de dificuldade do jogo
+    $(".btnNivel").click(function () {
+        //Seleciona o tipo de palavra
+        nivel = $(this).attr("id");
+        //console.log(nivel);
+        nivelId = $(this).attr("value");
+        //console.log(nivel);
+        limite = $("#limite option:selected").attr("value");
+        //console.log(limite);
+    });
+});
+
+
+
+
+
+
+
+
+
+
+
 
 function resetVariaveis() {
-    nivel = "";
-    nivelId = 0;
-    limite = 0;
-
-    //palavras = "";
-    //palavra = "";
-    //palavraSombra = "";
-
     historico = "";
     letras = 0;
     acertos = 0;
@@ -106,12 +127,10 @@ function updateSombra(letra) {
         }
         //console.log(palavra + " - " + palavraSombra);
     }
-    if (letras.length > 0) {
-        if (ac > 0) {
-            acertos++;
-        } else {
-            erros++;
-        }
+    if (ac > 0) {
+        acertos++;
+    } else {
+        erros++;
     }
 }
 
@@ -145,6 +164,8 @@ function updateGame() {
 
     //Histórico de letras
     $("#historico").empty().html(historico);
+
+    verificaResultados();
 }
 
 //Inicializa o jogo
@@ -163,9 +184,8 @@ function startGame() {
                 if (historico.search(letra) == -1) {
                     historico += letra + " ";
                     letras++;
+                    updateGame();
                 }
-                updateGame();
-                verificaResultados();
             }
         })
     })
