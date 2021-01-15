@@ -7,8 +7,10 @@
 
 #playGame{
     display: none;
+    background-color: cyan;
 }
 
 #niveis{
     display:block;
+    background-color: gray;
 }

@@ -5,10 +5,10 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="./css/forca.css" media="screen" rel="stylesheet" type="text/css" />
-        <!--script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="./js/jquery-3.5.1.js"></script>
         <script src="./js/forca.js"></script>
-        <script src="./js/niveis.js"></script>
+        <script src="./js/palavras.js"></script>
     </head>
     <body>
         <header>
@@ -18,9 +18,14 @@
         <div id="game">
             <div id="niveis">
                 <p>Selecione o nível de dificuldade</p>
-                <button onclick="setNivel('facil')">Fácil</button>
-                <button onclick="setNivel('medio')">Médio</button>
-                <button onclick="setNivel('dificil')">Difícil</button>
+                <select id="limite" name="erros">
+                    <option value="10" selected>Fácil (10 erros)</option>
+                    <option value="6">Médio (6 erros)</option>
+                    <option value="4">Difícil (4 erros)</option>
+                </select>
+                <p>Selecione o dicionário de palavras</p>
+                <button id="simples" class="btnNivel" value="0">Simples</button>
+                <button id="complexo" class="btnNivel" value="1">Complexo</button>
             </div>
             <div id="playGame">
                 <div id="mensagem"></div>
@@ -32,8 +37,8 @@
                         <li>Erros: <div id="placarErros">0</div></li>
                     </ul>
                 </div>
-                <!--div id="img_forca">Imagem da forca em sprite</div-->
-                <div id="palavraSombra">posiçoẽs_letras</div>
+                <div id="img_forca"></div>
+                <div id="palavraSombra"></div>
                 <div id="historico"></div>
             </div>
         </div>

@@ -6,89 +6,64 @@
  Create: 12-02-2020
  */
 
-var nivel;
-var nivelId;
-var limite;
+$(document).ready(function () {
+    var nivelId;
+    var limite;
+    var palavra;
+    var palavraSombra;
 
-var palavras;
-var palavra;
-var palavraSombra;
+    var historico;
+    var letras;
+    var acertos;
+    var erros;
 
-var historico;
-var letras;
-var acertos;
-var erros;
+    function novoJogo() {
+        function showSombra() {
+            var palavraSombraEspacada = "";
+            for (var i = 0; i < palavraSombra.length; i++) {
+                palavraSombraEspacada += palavraSombra[i] + " ";
+            }
+            $("#palavraSombra").empty().html(palavraSombraEspacada);
+        }
 
-function resetVariaveis() {
-    nivel = "";
-    nivelId = 0;
-    limite = 0;
+        function initVars() {
+            historico = "";
+            letras = 0;
+            acertos = 0;
+            erros = 0;
+            palavraSombra = "";
+            for (var i = 0; i < palavra.length; i++) {
+                palavraSombra += "_";
+            }
+        }
 
-    //palavras = "";
-    //palavra = "";
-    //palavraSombra = "";
+        function updateDisplay() {
+            showSombra();
+        }
 
-    historico = "";
-    letras = 0;
-    acertos = 0;
-    erros = 0;
-}
-
-//Define o nível do jogo e chama a função startGame()
-function setNivel(n) {
-    //console.log(n);
-    //Preenche as variáveis nivel 
-    switch (n) {
-        case "facil":
-            nivel = "Fácil";
-            nivelId = 0;
-            limite = 10;
-            break;
-        case "medio":
-            nivel = "Médio";
-            nivelId = 1;
-            limite = 7;
-            break;
-        default:
-            nivel = "Difícil";
-            nivelId = 2;
-            limite = 4;
-            break;
+        $("#niveis").css('display', 'none');
+        $("#playGame").css('display', 'block');
+        initVars();
+        updateDisplay();
     }
-    //console.log(nivel);
-    //console.log(nivelId);
-
-    //Atribui o Array de palavras do nível selecionado a variável palavras
-    palavras = niveis[nivelId];
-    //console.log(nivel);
 
 
-    //Seleciona randomicamente um indice no array de palavras
-    rand = Math.floor(Math.random() * (palavras.length));
-    //console.log(rand);
+    //Função para determinar a palavra e o níveis de dificuldade do jogo
+    $(".btnNivel").click(function () {
+        limite = $("#limite option:selected").attr("value");
+        //Seleciona randomicamente um indice no array de palavras
+        rand = Math.floor(Math.random() * (palavras[$(this).attr("value")].length));
+        palavra = palavras[$(this).attr("value")][rand];
+        //console.log(palavra);
 
-    //Atribui a palavra selecionada a variável palavra
-    palavra = palavras[rand];
-    //console.log(palavra);
+        novoJogo();
+    });
 
-    startGame();
-}
 
-function initSombra() {
-    palavraSombra = "";
-    for (var i = 0; i < palavra.length; i++) {
-        palavraSombra += "_";
-        //console.log(palavra[i]+" - "+palavraSombra[i]);
-    }
-}
+});
 
-function showSombra() {
-    var palavraSombraEspacada = "";
-    for (var i = 0; i < palavraSombra.length; i++) {
-        palavraSombraEspacada += palavraSombra[i] + " ";
-    }
-    $("#palavraSombra").empty().html(palavraSombraEspacada);
-}
+
+
 
 function updateSombra(letra) {
     var ac = 0;
@@ -106,12 +81,10 @@ function updateSombra(letra) {
         }
         //console.log(palavra + " - " + palavraSombra);
     }
-    if (letras.length > 0) {
-        if (ac > 0) {
-            acertos++;
-        } else {
-            erros++;
-        }
+    if (ac > 0) {
+        acertos++;
+    } else {
+        erros++;
     }
 }
 
@@ -145,12 +118,12 @@ function updateGame() {
 
     //Histórico de letras
     $("#historico").empty().html(historico);
+
+    verificaResultados();
 }
 
 //Inicializa o jogo
 function startGame() {
-    $("#niveis").css('display', 'none');
-    $("#playGame").css('display', 'block');
     resetVariaveis();
     initSombra();
     //console.log(palavraSombra);
@@ -163,9 +136,8 @@ function startGame() {
                 if (historico.search(letra) == -1) {
                     historico += letra + " ";
                     letras++;
+                    updateGame();
                 }
-                updateGame();
-                verificaResultados();
             }
         })
     })
