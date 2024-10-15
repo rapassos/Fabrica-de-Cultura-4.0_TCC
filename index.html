@@ -1,49 +1,79 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Fábrica de cultura 4.0 - TCC - Jogo da forca</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="./css/forca.css" media="screen" rel="stylesheet" type="text/css" />
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="./js/jquery-3.5.1.js"></script>
-        <script src="./js/forca.js"></script>
-        <script src="./js/palavras.js"></script>
-    </head>
-    <body>
-        <header>
-            <h1>Jogo da forca</h1>
+  <head>
+    <title>Fábrica de cultura 4.0 - TCC - Jogo da forca</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="./css/bootstrap.css"
+      media="screen"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="./css/forca.css"
+      media="screen"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="./js/jquery-3.5.1.js"></script>
+    <script src="./js/bootstrap.js"></script>
+    <script src="./js/forca.js"></script>
+    <script src="./js/palavras.js"></script>
+  </head>
+  <body>
+    <section class="py-12 py-lg-24 position-relative">
+      <div class="container">
+        <div id="default_block" class="mw-lg mw-lg-none mx-auto row">
+          <header class="header">
+            <h1 class="tittle">Jogo da forca</h1>
             <p>Fábrica de cultura 4.0 - TCC</p>
-        </header>
-        <div id="game">
+          </header>
+          <div id="game" class="container">
             <div id="niveis">
-                <p>Selecione o nível de dificuldade</p>
-                <select id="limite" name="erros">
-                    <option value="10" selected>Fácil (10 erros)</option>
-                    <option value="6">Médio (6 erros)</option>
-                    <option value="4">Difícil (4 erros)</option>
-                </select>
-                <p>Selecione o dicionário de palavras</p>
-                <button id="btnStart" class="btnNivel">Iniciar</button>
+              <p>Selecione o nível de dificuldade</p>
+              <select id="limite" name="erros" class="form-select">
+                <option value="10" selected>Fácil (10 erros)</option>
+                <option value="6">Médio (6 erros)</option>
+                <option value="4">Difícil (4 erros)</option>
+              </select>
+              <button href="#" id="btnStart" class="btn btn-primary btn-block container">Iniciar</button>
             </div>
             <div id="playGame">
-                <div id="mensagem"></div>
-                <div id="info">
-                    <p>Informações do jogo:</p>
-                    <ul id="placar">
-                        <li>Letras: <div id="placarLetras">0</div></li>
-                        <li>Acertos: <div id="placarAcertos">0</div></li>
-                        <li>Erros: <div id="placarErros">0</div></li>
-                    </ul>
-                </div>
-                <div id="img_forca"></div>
-                <div id="shadowWord"></div>
-                <div id="historico"></div>
+              <div id="mensagem"></div>
+              <div id="info">
+                <p>Informações do jogo:</p>
+                <ul id="placar" class="list-group">
+                  <li class="list-group-item list-group-item-info">
+                    Letras:
+                    <div id="placarLetras">0</div>
+                  </li>
+                  <li class="list-group-item list-group-item-success">
+                    Acertos:
+                    <div id="placarAcertos">0</div>
+                  </li>
+                  <li class="list-group-item list-group-item-warning">
+                    Erros: <div id="placarErros">0</div>
+                  </li>
+                </ul>
+              </div>
+              <div class="row">
+              <div id="img_forca"></div>
+              <div id="shadowWord"></div>
+              <div id="historico"></div>
             </div>
+              <div id="instrucoes">
+              <p><b>Instruções:</b></p>
+              <ul class="list-group container">
+                <li class="list-group-item">Digite as letras para acertar a palavra</li>
+                <li class="list-group-item">Para sair digite <b>"!"</b></li>
+              </ul>
+            </div>
+            </div>
+          </div>
         </div>
-    </body>
+      </div>
+      </div>
+    </section>
+  </body>
 </html>
-
-
-
-

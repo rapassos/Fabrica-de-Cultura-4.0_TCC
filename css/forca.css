@@ -5,12 +5,65 @@
     Data: 02/12/2020
 */
 
-#playGame{
-    display: none;
-    background-color: cyan;
+#btnStart{
+    margin: 5px 0;
 }
 
-#niveis{
-    display:block;
-    background-color: gray;
+#playGame {
+    display: none;
+  }
+
+#game{
+  -border: 1px #000 solid;
+  border-radius: 5px;
+  background-color: #ddd;
+  padding: 15px;
+}
+#placarLetras,#placarAcertos,#placarErros{
+    display:inline-block;
+}
+#instrucoes{
+    margin: 10px;
+}
+/*
+
+body {
+  padding: 1em;
+}
+
+h1,
+p {
+  text-align: center;
+}
+
+#instrucoes {
+  background-color: #bbb;
+  margin:5px 0 0;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+
+#game {
+  border: 1px #000 solid;
+  border-radius: 5px;
+
+  margin: 2px;
+  width: 350px;
+  margin: auto;
+  padding: 5px;
+  background-color: #ddd;
+}
+
+#playGame {
+  display: none;
+  background-color: cyan;
+}
+
+#niveis {
+  display: block;
+}
+
+.selector-for-some-widget {
+  box-sizing: content-box;
 }
