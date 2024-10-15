@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Fábrica de cultura 4.0 - TCC - Jogo da forca</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="./css/forca.css" media="screen" rel="stylesheet" type="text/css" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="./js/jquery-3.5.1.js"></script>
+        <script src="./js/forca.js"></script>
+        <script src="./js/palavras.js"></script>
+    </head>
+    <body>
+        <header>
+            <h1>Jogo da forca</h1>
+            <p>Fábrica de cultura 4.0 - TCC</p>
+        </header>
+        <div id="game">
+            <div id="niveis">
+                <p>Selecione o nível de dificuldade</p>
+                <select id="limite" name="erros">
+                    <option value="10" selected>Fácil (10 erros)</option>
+                    <option value="6">Médio (6 erros)</option>
+                    <option value="4">Difícil (4 erros)</option>
+                </select>
+                <p>Selecione o dicionário de palavras</p>
+                <button id="btnStart" class="btnNivel">Iniciar</button>
+            </div>
+            <div id="playGame">
+                <div id="mensagem"></div>
+                <div id="info">
+                    <p>Informações do jogo:</p>
+                    <ul id="placar">
+                        <li>Letras: <div id="placarLetras">0</div></li>
+                        <li>Acertos: <div id="placarAcertos">0</div></li>
+                        <li>Erros: <div id="placarErros">0</div></li>
+                    </ul>
+                </div>
+                <div id="img_forca"></div>
+                <div id="shadowWord"></div>
+                <div id="historico"></div>
+            </div>
+        </div>
+    </body>
+</html>
+
+
+
+
