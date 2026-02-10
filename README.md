@@ -166,4 +166,4 @@ Este projeto está sob a licença MIT — veja o arquivo [LICENSE](LICENSE) para
 
 ---
 
-> 💡 **Nota:** Este projeto marca o início da minha jornada em desenvolvimento web, desenvolvido em 2020 como TCC de um programa de inclusão digital. Representa a aplicação prática de fundamentos que continuam sendo a base para projetos mais complexos com frameworks modernos e cloud computing.
+> 💡 **Nota:** Este projeto marca mais um passo da minha jornada em desenvolvimento web, desenvolvido em 2020 como TCC de um programa de inclusão digital. Representa a aplicação prática de fundamentos que continuam sendo a base para projetos mais complexos com frameworks modernos e cloud computing.
