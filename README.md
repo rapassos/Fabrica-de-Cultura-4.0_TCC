@@ -18,7 +18,7 @@
 
 ## 📸 Screenshot
 
-> *(/Jogo-da-forca-TCC.png)*
+> ![Tela inicial](/Jogo-da-forca-TCC.png)
 
 ---
 
